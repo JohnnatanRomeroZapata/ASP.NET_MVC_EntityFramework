@@ -1,0 +1,49 @@
+﻿@model ProjectJohnnatan.Models.TModel
+
+@{
+    ViewBag.Title = "Details";
+
+    if (@Session["administratorId"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+<h2>Details</h2>
+
+<div>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ModelId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModelId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModelName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TBrand.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TBrand.BrandName)
+        </dd>
+
+    </dl>
+</div>
+
+<div class="row mx-md-n2">
+    <div class="col-md-2"><div class="p-2 border bg-light text-center">@Html.ActionLink("Edit", "Edit", new { id = Model.ModelId })</div></div>
+    <div class="col-md-2"><div class="p-2 border bg-light text-center">@Html.ActionLink("Back to List", "Index", "Model")</div></div>
+</div>

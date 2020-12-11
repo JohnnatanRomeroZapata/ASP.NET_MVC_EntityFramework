@@ -1,0 +1,29 @@
+﻿@model ProjectJohnnatan.Models.TAdministrator
+
+@{
+    ViewBag.Title = "DashBoard";
+
+    if (@Session["administratorId"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+<h1>DASHBOARD</h1>
+
+<h3>WELCOME <a class="text-warning">@Session["administratorUser"]</a> THIS IS YOUR DASHBOARD</h3>
+
+<br />
+
+<h4>Please Select and Option</h4>
+
+<br />
+
+@using (Html.BeginForm())
+{
+    <div class="row mx-md-n2">
+        <div class="col-md-2"><div class="p-2 border bg-light text-center">@Html.ActionLink("Go to Brands", "Index", "Brand")</div></div>
+        <div class="col-md-2"><div class="p-2 border bg-light text-center">@Html.ActionLink("Go to Models", "Index", "Model")</div></div>
+        <div class="col-md-2"><div class="p-2 border bg-light text-center">@Html.ActionLink("Logout", "Logout", "Administrator")</div></div>
+    </div>
+}

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ProjectJohnnatan.Models.TBrand>
+
+@{
+    ViewBag.Title = "Index";
+
+    if (@Session["administratorId"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+<h2>Brands</h2>
+
+
+<table class="table">
+
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.BrandId)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrandName)
+        </th>
+        <th>Options</th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.HiddenFor(model => item.BrandId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.BrandId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.BrandId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.BrandId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="row mx-md-n2">
+    <div class="col-md-3"><div class="p-2 border bg-light text-center">@Html.ActionLink("Create a New Brand", "Create" , "Brand")</div></div>
+    <div class="col-md-3"><div class="p-2 border bg-light text-center">@Html.ActionLink("Go Back to DashBoard", "DashBoard", "Administrator")</div></div>
+</div>
