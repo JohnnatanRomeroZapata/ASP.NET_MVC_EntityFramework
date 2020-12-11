@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1 class="text-center">WELCOME TO JOHNNATAN'S PROJECT</h1>
+
+<br />
+
+<h2>Please select and option</h2>
+
+<br />
+
+@using (Html.BeginForm())
+{
+    <div class="row mx-md-n2">
+        <div class="col-md-3">
+            <div class="p-2 border bg-primary text-center">
+                @Html.ActionLink("Create an Administrator", "Create", "Administrator", null , new { @class = "text-white" })
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="p-2 border bg-primary text-center">
+                @Html.ActionLink("Login as an Administrator", "Login", "Administrator", null, new { @class = "text-white" })
+            </div>
+        </div>
+    </div>
+
+    <br />
+    
+    <div class="row mx-md-n2">
+        <div class="col-md-2">
+            <div class="p-2 border bg-light text-center">
+                @Html.ActionLink("Create an User", "Create", "User", null, new { @class = "text-dark" })
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="p-2 border bg-light text-center">
+                @Html.ActionLink("Login as an User", "Login", "User", null, new { @class = "text-dark" })
+            </div>
+        </div>
+    </div>
+    
+    <br />
+
+    <div class="row mx-md-n2">
+        <div class="col-md-2">
+            <div class="p-2 border bg-info text-center">
+                @Html.ActionLink("Search a Car", "Search", "Model", null, new { @class = "text-white" })
+            </div>
+        </div>
+    </div>
+}
